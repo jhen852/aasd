@@ -1,0 +1,25 @@
+--PROCEDIMIENTO
+		create procedure dbo.myproc(@x varchar(40),@f datetime)
+as
+begin
+	select p.nombre , d.cantidad
+	from venta v, DETALLE_VENTA d, producto p
+	where v.nro=d.nro and
+	d.codPro=p.codProd and 
+	v.nit=@x and v.fecha=@f
+	end;
+	execute muestraProduct '111','1/1/2014'
+--
+CREATE PROC dbo.mostrar
+AS
+BEGIN
+    select *
+	from cliente
+END
+
+--VISTA
+CREATE VIEW dbo.view2
+ AS SELECT*
+ FROM cargo
+
+ select * from view2
